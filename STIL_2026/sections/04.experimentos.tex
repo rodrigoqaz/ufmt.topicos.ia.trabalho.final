@@ -1,0 +1,34 @@
+
+
+Os experimentos foram desenhados para avaliar comparativamente o desempenho do modelo nos quatro cenários metodológicos descritos na Seção 3:
+
+\begin{itemize}
+    \item M1 - \textit{Baseline}: Inferência direta sem treinamento (\textit{Zero-shot});
+    \item M2 - \textit{Last-Layer Fine-Tuning}: Ajuste fino restrito à camada de saída;
+    \item M3 - Q-LoRA: Ajuste fino eficiente com quantização 4-bit.
+    \item M4 - \textit{Full Fine-Tuning}: Atualização de todos os parâmetros do modelo pré-treinado.
+\end{itemize}
+
+Os modelos submetidos ao fine-tuning (M2, M3 e M4) foram treinados em uma base de dados composta por 10 mil amostras selecionadas aleatoriamente, conforme detalhado na Seção 2. O conjunto completo não foi utilizado devido a limitações computacionais.
+
+A validação dos resultados foi conduzida através de duas abordagens complementares: avaliação automática (quantitativa) e avaliação humana (qualitativa).
+
+\subsection{Avaliação Automática (S-BERT)}
+
+O objetivo do experimento é identificar qual modelo apresenta o melhor desempenho na geração de títulos. A performance foi mensurada através da proximidade semântica entre o título gerado ($T_{gen}$) e o título original de referência ($T_{ref}$), utilizando a métrica S-BERT~\cite{reimers_sentence-bert_2019,zhang_semantics-aware_2020}.
+Esta métrica calcula a similaridade de cosseno entre os embeddings das sentenças, sendo mais robusta a paráfrases do que métricas baseadas em n-gramas (como ROUGE ou BLEU).
+
+\subsection{Avaliação Humana}
+
+Para mitigar as limitações das métricas automáticas, realizou-se uma análise qualitativa em caráter exploratório. Dois avaliadores independentes responderam a um formulário contendo $8$ questões.
+Cada item do formulário apresentava o resumo (\textit{abstract}) de um artigo seguido por cinco opções de títulos, apresentadas em ordem aleatorizada e sem qualquer identificação da técnica geradora (avaliação cega, \textit{blind evaluation}):
+
+\begin{enumerate}
+    \item O título original do autor (\textit{Ground Truth});
+    \item O título gerado pelo \textit{Baseline} (M1);
+    \item O título gerado pelo \textit{Last-Layer Fine-Tuning} (M2);
+    \item O título gerado pelo Q-LoRA (M3).
+    \item O título gerado pelo \textit{Full Fine-Tuning} (M4).
+\end{enumerate}
+
+Os avaliadores identificaram qual título melhor representava o conteúdo do resumo, considerando critérios de coerência semântica, concisão e correção gramatical. O protocolo de avaliação cega garante que as preferências registradas sejam independentes do conhecimento prévio sobre os métodos comparados.

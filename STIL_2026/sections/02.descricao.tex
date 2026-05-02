@@ -1,0 +1,9 @@
+
+
+Os dados utilizados neste estudo foram obtidos a partir do repositório público do arXiv \cite{arxivorg_submitters_arxiv_nodate}. O \textit{dataset} original é distribuído no formato JSON e contém os seguintes campos: \texttt{id}, \texttt{submitter}, \texttt{authors}, \texttt{title}, \texttt{comments}, \texttt{journal-ref}, \texttt{doi}, \texttt{report-no}, \texttt{categories}, \texttt{license}, \texttt{abstract}, \texttt{versions}, \texttt{update\_date} e \texttt{authors\_parsed}.
+
+Para o escopo deste trabalho, utilizou-se apenas os campos \texttt{abstract} (resumo) e \texttt{title} (título). Uma análise exploratória preliminar dos dados revelou a presença de sequências textuais extensas: o maior \texttt{abstract} registrado possui 6.091 caracteres, enquanto o título mais longo contém 382 caracteres. Essas métricas são relevantes pois impactam diretamente a escolha da janela de contexto do modelo de linguagem.
+
+O pré-processamento dos dados para o \textit{fine-tuning} envolveu uma estratégia de subamostragem aleatória (random subsampling), visando a viabilidade computacional. Foram gerados dois subconjuntos disjuntos: \begin{itemize} \item Conjunto de Treinamento: Composto por 10.000 amostras; \item Conjunto de Teste: Composto por 1.000 amostras. \end{itemize}
+
+Na modelagem, o atributo \texttt{abstract} foi utilizado como variável de entrada do modelo, enquanto o atributo \texttt{title} foi adotado como alvo. Assim, o objetivo do treinamento é que o modelo seja capaz de gerar, a partir do resumo, um título que seja semanticamente equivalente ao conteúdo presente no atributo title.

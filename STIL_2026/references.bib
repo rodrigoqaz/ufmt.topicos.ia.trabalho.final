@@ -1,0 +1,212 @@
+
+@inproceedings{hu_lora_2022,
+	title = {{LoRA}: {Low}-{Rank} {Adaptation} of {Large} {Language} {Models}},
+	url = {https://openreview.net/forum?id=nZeVKeeFYf9},
+	booktitle = {International {Conference} on {Learning} {Representations}},
+	author = {Hu, Edward J. and Shen, Yelong and Wallis, Phillip and Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and Wang, Lu and Chen, Weizhu},
+	year = {2022},
+}
+
+@inproceedings{vaswani_attention_2017,
+	title = {Attention {Is} {All} {You} {Need}},
+	volume = {30},
+	url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems}},
+	publisher = {Curran Associates, Inc.},
+	author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+	year = {2017},
+}
+
+@inproceedings{reimers_sentence-bert_2019,
+	title = {Sentence-{BERT}: {Sentence} {Embeddings} using {Siamese} {BERT}-{Networks}},
+	url = {https://aclanthology.org/D19-1410},
+	doi = {10.18653/v1/D19-1410},
+	booktitle = {Proceedings of the 2019 {Conference} on {Empirical} {Methods} in {Natural} {Language} {Processing} and the 9th {International} {Joint} {Conference} on {Natural} {Language} {Processing} ({EMNLP}-{IJCNLP})},
+	publisher = {Association for {Computational} {Linguistics}},
+	author = {Reimers, Nils and Gurevych, Iryna},
+	year = {2019},
+	pages = {3982--3992},
+}
+
+@inproceedings{devlin_bert_2019,
+	title = {{BERT}: {Pre}-training of {Deep} {Bidirectional} {Transformers} for {Language} {Understanding}},
+	url = {https://aclanthology.org/N19-1423},
+	doi = {10.18653/v1/N19-1423},
+	booktitle = {Proceedings of the 2019 {Conference} of the {North} {American} {Chapter} of the {Association} for {Computational} {Linguistics}: {Human} {Language} {Technologies}, {Volume} 1 ({Long} and {Short} {Papers})},
+	publisher = {Association for {Computational} {Linguistics}},
+	author = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+	year = {2019},
+	pages = {4171--4186},
+}
+
+@misc{shi_systematic_2025,
+	title = {Systematic {Characterization} of {LLM} {Quantization}: {A} {Performance}, {Energy}, and {Quality} {Perspective}},
+	shorttitle = {Systematic {Characterization} of {LLM} {Quantization}},
+	url = {http://arxiv.org/abs/2508.16712},
+	doi = {10.48550/arXiv.2508.16712},
+	abstract = {Large language models (LLMs) have demonstrated remarkable capabilities across diverse domains, but their heavy resource demands make quantization-reducing precision to lower-bit formats-critical for efficient serving. While many quantization methods exist, a systematic understanding of their performance, energy, and quality tradeoffs in realistic serving conditions remains a gap. In this work, we first develop a fully automated online characterization framework qMeter, and then conduct an in-depth characterization of 11 post-training LLM quantization methods across 4 model sizes (7B-70B) and two GPU architectures (A100, H100). We evaluate quantization at the application, workload, parallelism, and hardware levels under online serving conditions. Our study reveals highly task- and method-dependent tradeoffs, strong sensitivity to workload characteristics, and complex interactions with parallelism and GPU architecture. We further present three optimization case studies illustrating deployment challenges in capacity planning, energy-efficient scheduling, and multi-objective tuning. To the best of our knowledge, this is one of the first comprehensive application-, system-, and hardware-level characterization of LLM quantization from a joint performance, energy, and quality perspective.},
+	urldate = {2025-12-05},
+	publisher = {arXiv},
+	author = {Shi, Tianyao and Ding, Yi},
+	month = aug,
+	year = {2025},
+	note = {arXiv:2508.16712 [cs]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Distributed, Parallel, and Cluster Computing, Computer Science - Hardware Architecture, Computer Science - Machine Learning, Computer Science - Performance},
+}
+
+@article{egashira_exploiting_nodate,
+	title = {Exploiting {LLM} {Quantization}},
+	abstract = {Quantization leverages lower-precision weights to reduce the memory usage of large language models (LLMs) and is a key technique for enabling their deployment on commodity hardware. While LLM quantization’s impact on utility has been extensively explored, this work for the first time studies its adverse effects from a security perspective. We reveal that widely used quantization methods can be exploited to produce a harmful quantized LLM, even though the full-precision counterpart appears benign, potentially tricking users into deploying the malicious quantized model. We demonstrate this threat using a three-staged attack framework: (i) first, we obtain a malicious LLM through fine-tuning on an adversarial task; (ii) next, we quantize the malicious model and calculate constraints that characterize all full-precision models that map to the same quantized model; (iii) finally, using projected gradient descent, we tune out the poisoned behavior from the fullprecision model while ensuring that its weights satisfy the constraints computed in step (ii). This procedure results in an LLM that exhibits benign behavior in full precision but when quantized, it follows the adversarial behavior injected in step (i). We experimentally demonstrate the feasibility and severity of such an attack across three diverse scenarios: vulnerable code generation, content injection, and over-refusal attack. In practice, the adversary could host the resulting full-precision model on an LLM community hub such as Hugging Face, exposing millions of users to the threat of deploying its malicious quantized version on their devices.},
+	language = {en},
+	author = {Egashira, Kazuki and Vero, Mark and Staab, Robin and He, Jingxuan and Vechev, Martin},
+}
+
+@article{zhang_semantics-aware_2020,
+	title = {Semantics-{Aware} {BERT} for {Language} {Understanding}},
+	volume = {34},
+	copyright = {https://www.aaai.org},
+	issn = {2374-3468, 2159-5399},
+	url = {https://ojs.aaai.org/index.php/AAAI/article/view/6510},
+	doi = {10.1609/aaai.v34i05.6510},
+	abstract = {The latest work on language representations carefully integrates contextualized features into language model training, which enables a series of success especially in various machine reading comprehension and natural language inference tasks. However, the existing language representation models including ELMo, GPT and BERT only exploit plain context-sensitive features such as character or word embeddings. They rarely consider incorporating structured semantic information which can provide rich semantics for language representation. To promote natural language understanding, we propose to incorporate explicit contextual semantics from pre-trained semantic role labeling, and introduce an improved language representation model, Semanticsaware BERT (SemBERT), which is capable of explicitly absorbing contextual semantics over a BERT backbone. SemBERT keeps the convenient usability of its BERT precursor in a light ﬁne-tuning way without substantial task-speciﬁc modiﬁcations. Compared with BERT, semantics-aware BERT is as simple in concept but more powerful. It obtains new state-ofthe-art or substantially improves results on ten reading comprehension and language inference tasks.},
+	language = {en},
+	number = {05},
+	urldate = {2025-12-04},
+	journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+	author = {Zhang, Zhuosheng and Wu, Yuwei and Zhao, Hai and Li, Zuchao and Zhang, Shuailiang and Zhou, Xi and Zhou, Xiang},
+	month = apr,
+	year = {2020},
+	pages = {9628--9635},
+}
+
+@article{dettmers_qlora_nodate,
+	title = {{QLORA}: {Efficient} {Finetuning} of {Quantized} {LLMs}},
+	language = {en},
+	author = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari and Zettlemoyer, Luke},
+}
+
+@inproceedings{dettmers_qlora_2023,
+	title = {{QLoRA}: {Efficient} {Finetuning} of {Quantized} {LLMs}},
+	volume = {36},
+	url = {https://proceedings.neurips.cc/paper_files/paper/2023/file/1feb87871436031bdc0f2beaa62a049b-Paper-Conference.pdf},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems}},
+	publisher = {Curran Associates, Inc.},
+	author = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari and Zettlemoyer, Luke},
+	editor = {Oh, A. and Naumann, T. and Globerson, A. and Saenko, K. and Hardt, M. and Levine, S.},
+	year = {2023},
+	pages = {10088--10115},
+}
+
+@article{yang_qwen2_2024,
+	title = {Qwen2 {Technical} {Report}},
+	journal = {arXiv preprint arXiv:2407.10671},
+	author = {Yang, An and Yang, Baosong and Hui, Binyuan and Zheng, Bo and Yu, Bowen and Zhou, Chang and Li, Chengpeng and Li, Chengyuan and Liu, Dayiheng and Huang, Fei and Dong, Guanting and Wei, Haoran and Lin, Huan and Tang, Jialong and Wang, Jialin and Yang, Jian and Tu, Jianhong and Zhang, Jianwei and Ma, Jianxin and Xu, Jin and Zhou, Jingren and Bai, Jinze and He, Jinzheng and Lin, Junyang and Dang, Kai and Lu, Keming and Chen, Keqin and Yang, Kexin and Li, Mei and Xue, Mingfeng and Ni, Na and Zhang, Pei and Wang, Peng and Peng, Ru and Men, Rui and Gao, Ruize and Lin, Runji and Wang, Shijie and Bai, Shuai and Tan, Sinan and Zhu, Tianhang and Li, Tianhao and Liu, Tianyu and Ge, Wenbin and Deng, Xiaodong and Zhou, Xiaohuan and Ren, Xingzhang and Zhang, Xinyu and Wei, Xipin and Ren, Xuancheng and Fan, Yang and Yao, Yang and Zhang, Yichang and Wan, Yu and Chu, Yunfei and Liu, Yuqiong and Cui, Zeyu and Zhang, Zhenru and Fan, Zhihao},
+	year = {2024},
+}
+
+@misc{team_qwen25_2024,
+	title = {Qwen2.5: {A} {Party} of {Foundation} {Models}},
+	url = {https://qwenlm.github.io/blog/qwen2.5/},
+	author = {Team, Qwen},
+	month = sep,
+	year = {2024},
+}
+
+@book{noauthor_notitle_nodate,
+}
+
+@misc{arxivorg_submitters_arxiv_nodate, 
+	title = {{arXiv} {Dataset}},
+	author = {{arXiv.org submitters}},  
+	howpublished = {\url{https://www.kaggle.com/dsv/7548853}},
+	year = {2024},
+	note = {Acessado em: 03 dez. 2025}
+}
+
+@misc{shu_thinking_2025,
+	title = {Thinking by {Doing}: {Building} {Efficient} {World} {Model} {Reasoning} in {LLMs} via {Multi}-turn {Interaction}},
+	shorttitle = {Thinking by {Doing}},
+	url = {http://arxiv.org/abs/2511.23476},
+	doi = {10.48550/arXiv.2511.23476},
+	abstract = {Developing robust world model reasoning is crucial for large language model (LLM) agents to plan and interact in complex environments. While multi-turn interaction offers a superior understanding of environmental dynamics via authentic feedback, current approaches often impose a rigid reasoning process, which constrains the model’s active learning, ultimately hindering efficient world model reasoning. To address these issues, we explore world-model internalization through efficient interaction and active reasoning (WMAct), which liberates the model from structured reasoning—allowing the model to shape thinking directly through its doing—and achieves effective and efficient world model reasoning with two key mechanisms: (1) a reward rescaling mechanism adjusting outcome reward based on action efficacy to incentivize redundancy reduction and purposeful interaction; (2) an interaction frequency annealing strategy to progressively reduce the maximum allowed interaction turns, which compels the model to condense its learning and internalize environmental dynamics rather than over-relying on environmental cues. Our experiments on Sokoban, Maze, and Taxi show that WMAct yields effective world model reasoning capable of resolving tasks in a single turn that previously required multiple interactions and fosters strong transferability to complex environments, improving performance on a suite of reasoning benchmarks.},
+	language = {en},
+	urldate = {2025-12-01},
+	publisher = {arXiv},
+	author = {Shu, Bao and Cai, Yan and Sun, Jianjian and Han, Chunrui and Yu, En and Zhao, Liang and Hu, Jingcheng and Zhang, Yinmin and Lv, Haoran and Peng, Yuang and Ge, Zheng and Zhang, Xiangyu and Jiang, Daxin and Yue, Xiangyu},
+	month = nov,
+	year = {2025},
+	note = {arXiv:2511.23476 [cs]},
+	keywords = {Computer Science - Artificial Intelligence},
+}
+
+@article{noauthor_correction_2025,
+	title = {Correction to: {How} do judges use large language models? {Evidence} from {Shenzhen}},
+	volume = {17},
+	copyright = {https://creativecommons.org/licenses/by-nc/4.0/},
+	issn = {2161-7201, 1946-5319},
+	shorttitle = {Correction to},
+	url = {https://academic.oup.com/jla/article/17/1/1/8061311},
+	doi = {10.1093/jla/laaf002},
+	language = {en},
+	number = {1},
+	urldate = {2025-11-23},
+	journal = {Journal of Legal Analysis},
+	month = mar,
+	year = {2025},
+	pages = {1--1},
+}
+
+@misc{park_linear_2023,
+	title = {The {Linear} {Representation} {Hypothesis} and the {Geometry} of {Large} {Language} {Models}},
+	copyright = {Creative Commons Attribution Non Commercial Share Alike 4.0 International},
+	url = {https://arxiv.org/abs/2311.03658},
+	doi = {10.48550/ARXIV.2311.03658},
+	abstract = {Informally, the 'linear representation hypothesis' is the idea that high-level concepts are represented linearly as directions in some representation space. In this paper, we address two closely related questions: What does "linear representation" actually mean? And, how do we make sense of geometric notions (e.g., cosine similarity or projection) in the representation space? To answer these, we use the language of counterfactuals to give two formalizations of "linear representation", one in the output (word) representation space, and one in the input (sentence) space. We then prove these connect to linear probing and model steering, respectively. To make sense of geometric notions, we use the formalization to identify a particular (non-Euclidean) inner product that respects language structure in a sense we make precise. Using this causal inner product, we show how to unify all notions of linear representation. In particular, this allows the construction of probes and steering vectors using counterfactual pairs. Experiments with LLaMA-2 demonstrate the existence of linear representations of concepts, the connection to interpretation and control, and the fundamental role of the choice of inner product.},
+	urldate = {2025-11-20},
+	publisher = {arXiv},
+	author = {Park, Kiho and Choe, Yo Joong and Veitch, Victor},
+	year = {2023},
+	note = {Version Number: 2},
+	keywords = {Artificial Intelligence (cs.AI), Computation and Language (cs.CL), FOS: Computer and information sciences, Machine Learning (cs.LG), Machine Learning (stat.ML)},
+}
+
+@inproceedings{noauthor_notitle_nodate-1,
+}
+
+@article{raffel_exploring_2020,
+	title = {Exploring the {Limits} of {Transfer} {Learning} with a {Unified} {Text}-to-{Text} {Transformer}},
+	volume = {21},
+	url = {http://jmlr.org/papers/v21/20-1307.html},
+	number = {140},
+	journal = {Journal of Machine Learning Research},
+	author = {Raffel, Colin and Shazeer, Noam and Roberts, Adam and Lee, Katherine and Narang, Sharan and Matena, Michael and Zhou, Yanqi and Li, Wei and Liu, Peter J.},
+	year = {2020},
+	pages = {1--67},
+}
+
+@inproceedings{brown_language_2020,
+	title = {Language {Models} are {Few}-{Shot} {Learners}},
+	volume = {33},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems}},
+	publisher = {Curran Associates, Inc.},
+	author = {Brown, Tom and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared D and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and Agarwal, Sandhini and Herbert-Voss, Ariel and Krueger, Gwendolyn and Henighan, Tom and Child, Rewon and Ramesh, Aditya and Ziegler, Daniel and Wu, Jeffrey and Winter, Clemens and Hesse, Chris and Chen, Mark and Sigler, Eric and Litwin, Mateusz and Gray, Scott and Chess, Benjamin and Clark, Jack and Berner, Christopher and McCandlish, Sam and Radford, Alec and Sutskever, Ilya and Amodei, Dario},
+	year = {2020},
+	pages = {1877--1901},
+}
+
+@article{ding_parameter-efficient_2023,
+	title = {Parameter-efficient fine-tuning of large-scale pre-trained language models},
+	volume = {5},
+	doi = {10.1038/s42256-023-00626-4},
+	journal = {Nature Machine Intelligence},
+	author = {Ding, Ning and Qin, Yujia and Yang, Guang and Wei, Furu and Yang, Zonghan and Su, Yusheng and Hu, Shengding and Chen, Yulin and Chan, Chi-Min and Chen, Weize and Yi, Jing and Zhao, Weilin and Wang, Xiaozhi and Liu, Zhiyuan and Zheng, Hai-Tao and Chen, Jianfei and Liu, Yang and Tang, Jie and Li, Juanzi and Sun, Maosong},
+	year = {2023},
+	pages = {220--235},
+}
+
+@inproceedings{souza_bertimbau_2020,
+	title = {{BERTimbau}: Pretrained {BERT} Models for {Brazilian} {Portuguese}},
+	booktitle = {9th {Brazilian} {Conference} on {Intelligent} {Systems} ({BRACIS})},
+	author = {Souza, Fábio and Nogueira, Rodrigo and Lotufo, Roberto},
+	year = {2020},
+}

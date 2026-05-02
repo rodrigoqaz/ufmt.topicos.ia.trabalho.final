@@ -1,0 +1,91 @@
+
+
+Para a adaptação do modelo de linguagem à tarefa de geração de títulos, foram exploradas três abordagens distintas: (i) \textit{Baseline} (sem treinamento); (ii) \textit{Fine-tuning} da última camada; e (iii) \textit{Fine-tuning} eficiente via Q-LoRA.
+
+\subsubsection{Quantized Low-Rank Adaptation (Q-LoRA)}
+
+O método Q-LoRA~\cite{dettmers_qlora_nodate} é uma extensão da técnica LoRA~\cite{hu_lora_2022} (Low-Rank Adaptation), otimizada para eficiência de memória. Enquanto o LoRA congela os pesos pré-treinados do modelo e injeta pares de matrizes de decomposição de posto (rank) reduzido em cada camada, o Q-LoRA introduz a quantização dos pesos do modelo base para 4-bits (formato \textit{NormalFloat4}), mantendo os adaptadores treináveis em precisão mista (e.g., \textit{BFloat16}).
+
+Matematicamente, para uma camada linear pré-treinada com pesos $W_0 \in \mathbb{R}^{d \times k}$, a atualização dos pesos $\Delta W$ é parametrizada por uma decomposição de baixo posto $BA$, onde $B \in \mathbb{R}^{d \times r}$ e $A \in \mathbb{R}^{r \times k}$, sendo $r \ll \min(d, k)$ o posto (rank) da adaptação. A operação de \textit{forward pass} é então expressa como:
+
+\begin{equation}
+h = W_0 x + \Delta W x = W_0 x + B A x
+\end{equation}
+Onde $x$ é o vetor de entrada e $h$ o vetor de saída.
+
+A principal vantagem reside na eficiência paramétrica. O número de parâmetros treináveis ($N_{LoRA}$) em comparação com o treinamento completo ($N_{Full}$) é dado pela relação entre as dimensões das matrizes. Para que haja redução de parâmetros, a seguinte desigualdade deve ser satisfeita:
+
+\begin{equation}
+    \underbrace{d \times r + r \times k}_{N_{LoRA}} \ll \underbrace{d \times k}_{N_{Full}}
+\end{equation}
+
+Simplificando para o caso onde as dimensões de entrada e saída são iguais ($d=k$):\begin{equation}2dr \ll d^2 \implies 2r \ll d\end{equation}Como $d$ (dimensão oculta do modelo) cresce linearmente e $d^2$ quadraticamente, existe um amplo intervalo para $r$ que garante uma redução drástica na contagem de parâmetros, viabilizando o treinamento em hardwares com memória limitada.
+
+É importante notar que, embora o armazenamento seja reduzido, a inferência direta com LoRA introduz uma latência computacional adicional, pois requer duas multiplicações matriciais extras ($Wx + BAx$). Esse custo pode ser eliminado através da técnica de \textit{Weight Merging}, onde as matrizes $A$ e $B$ são multiplicadas e somadas aos pesos originais ao final do treinamento ($W' = W_0 + BA$), restaurando a arquitetura original do modelo sem custos adicionais de latência.
+
+\subsubsection{Fine-tuning da Última Camada}
+
+A abordagem de \textit{Last-Layer Fine-Tuning} (ou \textit{Linear Probing}) restringe a atualização dos pesos (via \textit{backpropagation}) exclusivamente à camada de saída do modelo. Neste cenário, todas as camadas ocultas do \textit{Transformer}~\cite{vaswani_attention_2017} permanecem congeladas, funcionando apenas como extratoras de características. Embora computacionalmente eficiente, esta técnica limita a plasticidade do modelo em adaptar suas representações internas a novos domínios.
+
+\subsubsection{Full Fine-Tuning (Treinamento Completo)}
+
+A abordagem de Full Fine-Tuning (FFT) consiste na atualização irrestrita de todos os parâmetros $\theta$ do modelo pré-treinado durante o processo de aprendizado supervisionado. Diferente dos métodos PEFT (Parameter-Efficient Fine-Tuning), onde apenas um subconjunto de pesos ou adaptadores é ajustado, o FFT permite que a rede neural reconfigure todas as suas camadas ocultas e mecanismos de atenção para se adaptar à distribuição do novo dataset.
+
+Embora esta técnica ofereça, teoricamente, a maior plasticidade e potencial de desempenho, ela impõe um custo computacional severo. O consumo de memória VRAM é significativamente maior, pois é necessário armazenar os estados do otimizador e os gradientes para a totalidade dos parâmetros do modelo (neste caso, 0.5 bilhões de parâmetros). Esta abordagem serve, portanto, como o ``padrão-ouro'' para comparação com as técnicas de eficiência.
+
+\subsubsection{Modelo Baseline e Prompting}
+
+O modelo base adotado para todos os experimentos foi o Qwen2.5-0.5B-Instruct~\cite{yang_qwen2_2024,team_qwen25_2024}.
+A escolha deste modelo justifica-se pelo seu tamanho compacto (0,5 bilhões de parâmetros), permitindo iterações rápidas de experimentação, com poucos recursos computacionais.
+
+Para o treinamento supervisionado, os dados foram estruturados utilizando o formato de template \textit{ChatML}, conforme ilustrado abaixo:
+
+\begin{verbatim}
+<|im_start|>system
+You are a specialist in suggesting titles based on the abstract.
+<|im_end|>
+
+<|im_start|>user
+{exemplo['abstract']}
+<|im_end|>
+
+<|im_start|>assistant
+{exemplo['title']}{EOS_TOKEN}
+\end{verbatim}
+
+Este prompt delimita claramente as instruções do sistema, a entrada do usuário (resumo) e a saída esperada (título), facilitando com que o modelo seja treinado como um especialista na geração de títulos a partir de resumos. O usuário deve apenas fornecer o resumo do artigo para que o modelo produza um título adequado.
+
+
+
+% A principal vantagem desse método reside na redução do parâmetro $k$, uma vez que, quanto menor for seu valor, menor será o número de parâmetros que precisam ser ajustados. Considere a seguinte relação:
+
+% \begin{align*}
+% A \times k + B \times k & \le A \times B \\
+% k (A + B) &\le A \times B \\
+% k &\le \frac{A \times B}{A + B} \\
+% \end{align*}
+
+% Se $A$ e $B$ crescerem linearmente, o numerador aumentará em ordem quadrática, enquanto o denominador crescerá em ordem linear. Dessa forma, existe um amplo intervalo de valores possíveis para $k$ que ainda garante uma quantidade de parâmetros significativamente menor do que aquela necessária para treinar toda a camada.
+
+% Entretanto, após o treinamento, ainda é necessário incorporar as matrizes adaptadas à rede original. Além disso, embora o número de parâmetros treináveis seja reduzido, a fase de inferência (tanto no treinamento quanto no teste) passa a envolver mais parâmetros devido à presença das matrizes adicionais, o que pode tornar o modelo maior e potencialmente mais lento nessa etapa. Esses efeitos podem ser mitigados se, ao final do treinamento, as contribuições aprendidas nas matrizes $A$ e $B$ forem fundidas nas camadas originais do modelo, eliminando as estruturas auxiliares do LoRA e preservando os ganhos de eficiência obtidos durante o processo de treinamento.
+
+% O fine-tuning da última (ou mais) camadas consiste de permitir que o valor dos parâmetros seja ajustado durante o treinamento. Embora, isso tenha impactos em termos de performance, não há mudanças além do treinamento comum usando backpropagation.
+
+% O baseline utilizado neste trabalho foi o modelo original, isto é, o modelo Qwen2.5-0.5B-Instruct~\cite{yang_qwen2_2024,team_qwen25_2024}.
+
+% O prompt usado para treinar o modelo foi o seguinte:
+
+% \begin{verbatim}
+% <|im_start|>system
+% You are a specialist in suggesting titles based on the abstract.
+% <|im_end|>
+
+% <|im_start|>user
+% {exemplo['abstract']}
+% <|im_end|>
+
+% <|im_start|>assistant
+% {exemplo['title']}{EOS_TOKEN}
+% \end{verbatim}
+
+% Neste prompt, o modelo é treinado como um especialista na geração de títulos a partir de resumos. O usuário deve apenas fornecer o resumo do artigo para que o modelo produza um título adequado.

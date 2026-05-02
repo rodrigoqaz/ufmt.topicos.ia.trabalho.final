@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+% \usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[hyphens]{url}
+% \PassOptionsToPackage{hyphens}{url}
+% \usepackage{hyperref}
+
+\sloppy
+
+\title{Comparação de Estratégias de Ajuste Fino em LLMs de Pequeno Porte para Geração de Títulos Acadêmicos}
+
+\author{Omitido para avaliação cega}
+
+\address{Omitido para avaliação cega
+  \email{omitido@omitido}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{resumo}
+Este trabalho investiga a adaptação de LLMs de pequeno porte para geração automática de títulos científicos. Utilizando o modelo Qwen2,5-0,5B-Instruct e dados do arXiv, comparou-se Baseline, Fine-Tuning da última camada, Q-LoRA e Full Fine-Tuning. A performance foi avaliada via métrica S-BERT e análise qualitativa. Os resultados do teste de Kruskal-Wallis ($H=30,53$, $p<0,001$) indicaram diferenças significativas entre os métodos. O Treinamento Completo obteve o melhor desempenho, porém o Q-LoRA atingiu resultados estatisticamente equivalentes, validando sua eficiência. Em contrapartida, o ajuste da última camada mostrou-se inferior ao baseline. A análise qualitativa revelou que o modelo Q-LoRA apresenta maior instabilidade estrutural em arquiteturas compactas.
+\end{resumo}
+
+\begin{abstract}
+This work investigates the efficient adaptation of small Large Language Models (LLMs) for automatic title generation from scientific abstracts. Using the Qwen2.5-0.5B-Instruct base model and arXiv data, four experimental approaches were compared: Baseline (zero-shot), Last-Layer Fine-Tuning, Q-LoRA, and Full Fine-Tuning. Performance was evaluated quantitatively using S-BERT semantic similarity and qualitatively through human analysis. Kruskal-Wallis test results ($H=30.53$, $p<0.001$) demonstrated significant differences between methods. Full Fine-Tuning achieved the best absolute performance, but the Q-LoRA method reached statistically equivalent results, validating its efficiency. Conversely, adjusting only the last layer proved inferior to the baseline. Qualitative analysis also indicated that the quantized model (Q-LoRA) exhibited greater structural instability, suggesting the sensitivity of compact architectures to quantization.
+\end{abstract}
+
+\section{Introdução}\label{sec:intro}
+
+\input{sections/01.contextualizacao}
+
+\section{Trabalhos Relacionados}\label{sec:related}
+
+\input{sections/02.trabalhos_relacionados}
+
+\section{Metodologia}\label{sec:metodologia}
+
+\subsection{Construção do Dataset}\label{subsec:dataset}
+
+\input{sections/02.descricao}
+
+\subsection{Técnicas de Treinamento}\label{subsec:treinamento}
+
+\input{sections/03.treinamento}
+
+\section{Experimentos}\label{sec:experimento}
+
+\input{sections/04.experimentos}
+
+\section{Resultados e Discussões}\label{sec:resultados}
+
+
+
+% \input{sections/04.resultados}
+
+% \section{Análise dos resultados}
+
+\input{sections/05.analise_resultados}
+
+\section{Conclusão}\label{sec:conclusao}
+
+\input{sections/06.proximos_passos}
+
+\section*{Declaração de Ética}
+Esta pesquisa utiliza documentos públicos e não envolve dados pessoais ou sensíveis. Todos os procedimentos seguiram os padrões éticos aplicáveis.
+
+\section*{Uso de IA Generativa}
+Ferramentas de IA generativa foram utilizadas para auxiliar na revisão linguística e no refinamento do texto. Todo o conteúdo científico, o desenho experimental e a análise foram conduzidos pelos autores.
+
+\bibliographystyle{sbc}
+\bibliography{references}
+
+\end{document}
