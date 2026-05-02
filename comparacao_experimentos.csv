@@ -1,0 +1,119 @@
+Abstract,Titulo_Real,Titulo_Predito_baseline,Titulo_Predito_full_lora,Titulo_Predito_full_training,Titulo_Predito_last_layer
+"  $R$ measurement data taken with the BESII detector at center-of-mass energies
+between 3.7 and 5.0 GeV is fitted to determine resonance parameters (mass,
+total width, electron width) of the high mass charmonium states, $\psi(3770)$,
+$\psi(4040)$, $\psi(4160)$ and $\psi(4415)$. Various effects, including the
+relative phases between the resonances, interferences, the energy-dependence of
+the full widths, and the initial state radiative correction, are examined. The
+results are compared to previous studies.
+","Determination of the $\psi(3770)$, $\psi(4040)$, $\psi(4160)$ and
+  $\psi(4415)$ resonance parameters","""Resonant Resonance Identification via $R$ Data Fitting: Analysis of Center-Of-Mass Energy Range from 3.7 to 5.0 GeV""","Study of the Resonance Parameters of High Mass Charmonium States in R$
+  Measurements",Fitting of R Data to High Mass Charmonia States in BESII,Measurement of the $R$-parameter from BES II Data for Charmonium States
+"  $Range$ and $load$ play keys on the problem of attacking on links in random
+scale-free (RSF) networks. In this Brief Report we obtain the relation between
+$range$ and $load$ in RSF networks analytically by the generating function
+theory, and then give an estimation about the impact of attacks on the
+$efficiency$ of the network. The analytical results show that short range
+attacks are more destructive for RSF networks, and are confirmed numerically.
+Further our results are consistent with the former literature (Physical Review
+E \textbf{66}, 065103(R) (2002)).
+",Range-based attacks on links in random scale-free networks,Analyzing the Relationship Between Range and Load in Random Scale-Free Networks: Estimating the Impact of Attacks on Network Efficiency,"On the Impact of Short Range Attacks on Efficiency of Random Scale-Free
+  Networks",Analytical Estimation of Attack Impact on Random Scale-Free Networks,Analyzing Link Load and Range in Random Scale-Free Networks
+"  (Abridged) We investigate the number of physical companion galaxies for a
+sample of relatively isolated elliptical galaxies. NED has been used to
+reinvestigate the incidence of satellite galaxies for a sample of 34 elliptical
+galaxies, first investigated by Bothun & Sullivan in a visual search out to a
+projected search radius of 75 kpc. We have repeated their original
+investigation using data cataloged in NED. Nine of these elliptical galaxies
+appear to be members of galaxy clusters; the remaining sample of 25 galaxies
+reveals an average of +1.0+/-0.5 apparent companions per galaxy within a
+projected search radius of 75 kpc, in excess of two equal-area comparison
+regions displaced by 150-300 kpc. This is significantly larger than the
++0.12+/-0.42 companions/galaxy found by Bothun & Sullivan for the identical
+sample. Making use of published radial velocities identifies physical
+companions and gives a somewhat lower estimate of +0.4 companions per
+elliptical galaxy. An expansion of the search radius out to 300 kpc.
+","Companions to Isolated Elliptical Galaxies: Revisiting the
+  Bothun-Sullivan Sample","Title: Physical Companions to Elliptical Galaxies Revealed by NED Data in
+NED Catalogs",The Number of Companion Galaxies to Ellipticals in the Local Group,The Number of Physical Companions for Elliptical Galaxies,"The Number of Physical Companion Galaxies for a Sample of Elliptical
+  Galaxies"
+"  1/f noise in current biased La0.82Ca0.18MnO3 crystals has been investigated.
+The temperature dependence of the noise follows the resistivity changes with
+temperature suggesting that resistivity fluctuations constitute a fixed
+fraction of the total resistivity, independently of the dissipation mechanism
+and magnetic state of the system. The noise scales as a square of the current
+as expected for equilibrium resistivity fluctuations. However, at 77 K at bias
+exceeding some threshold, the noise intensity starts to decrease with
+increasing bias. The appearance of nonequilibrium noise is interpreted in terms
+of bias dependent multi-step indirect tunneling.
+",Nonequilibrium 1/f Noise in Low-doped Manganite Single Crystals,Current-biased La0.82Ca0.18MnO3 crystal: Temperature Dependence of 1/F Noise and Current-Dependent Noise Characteristics,Resistivity Fluctuations in Magnetic Manganese Oxide Crystals,Temperature dependence of 1/f noise in La0.82Ca0.18MnO3,Noise in 1/2 Fermi gas
+"  A Kuranishi space is a topological space with a Kuranishi structure, defined
+by Fukaya and Ono. Kuranishi structures occur naturally on moduli spaces of
+J-holomorphic curves in symplectic geometry.
+  This paper is a brief introduction to the author's book arXiv:0707.3572. Let
+Y be an orbifold and R a Q-algebra. We define the Kuranishi homology KH_*(Y;R)
+of Y with coefficients in R. The chain complex KC_*(Y;R) defining KH_*(Y;R) is
+spanned over R by [X,f,G], for X a compact oriented Kuranishi space with
+corners, f : X --> Y smooth, and G ""gauge-fixing data"" which makes Aut(X,f,G)
+finite. Our main result is that KH_*(Y;R) is isomorphic to singular homology.
+  We define a Poincare dual theory of Kuranishi cohomology KH^*(Y;R),
+isomorphic to compactly-supported cohomology, using a cochain complex KC^*(Y;R)
+spanned over R by [X,f,C], for X a compact Kuranishi space with corners, f : X
+--> Y a submersion, and C ""co-gauge-fixing data"". We also define simpler
+theories of Kuranishi bordism KB_*(Y;R) and Kuranishi cobordism KB^*(Y;R), for
+R a commutative ring. These are new topological invariants, and we show they
+are very large.
+  These theories are powerful new tools in symplectic geometry. Defining
+virtual cycles and chains for moduli spaces of J-holomorphic curves is trivial
+in Kuranishi (co)homology. There is no need to perturb moduli spaces, and no
+problems with transversality. This gives major simplifications in Lagrangian
+Floer cohomology.
+",Kuranishi homology and Kuranishi cohomology: a User's Guide,"Title suggestion: ""Kuranishi Structures: An Introduction to Symplectic Geometry via Orbifolds""
+
+This title encapsulates the key aspects of the paper:
+
+- It highlights the concept of Kuranishi structures as a bridge between orbifolds and symplectic geometry.
+- It suggests the use of orbifolds","Kuranishi Homology, Cohomology and Virtuality",Kuranishi Cohomology and Bordism,Kuranishi cohomology and bordism
+"  A Lagrangian generalization of time-reversible Born-Oppenheimer molecular
+dynamics [Niklasson et al., Phys. Rev. Lett. vol. 97, 123001 (2006)] is
+proposed. The Lagrangian includes extended electronic degrees of freedom as
+auxiliary dynamical variables in addition to the nuclear coordinates and
+momenta. While the nuclear degrees of freedom propagate on the Born-Oppenheimer
+potential energy surface, the extended auxiliary electronic degrees of freedom
+evolve as a harmonic oscillator centered around the adiabatic propagation of
+the self-consistent ground state. The formulation enables the application of
+higher-order symplectic or geometric integration schemes that are stable and
+energy conserving even under incomplete self-consistency convergence. It is
+demonstrated how the extended Born-Oppenheimer molecular dynamics improves the
+accuracy by over an order of magnitude compared to previous formulations at the
+same level of computational cost.
+","Extended Lagrangian formulation of time-reversible Born-Oppenheimer
+  molecular dynamics for higher-order symplectic integration",Lagrangian Generalized Time-Dependent Molecular Dynamics: A Novel Approach for High-Order Symplectic Integrationchemes,Higher-Order Symplectic Time-Reversibility for Molecular Dynamics,A Lagrangian Generalization of Time-Dependent Molecular Dynamics,A Lagrangian Generalization of Time-Repelling Born-Oppenheimer Molecular Dynamics
+"  A Ramsey interrogation scheme was used to measure the phase shift of
+laser-cooled $^{87}$Rb clock-transition pseudospins arising as a result of a
+reversal of a bias magnetic field, i.e., $\textbf{B} \to -\textbf{B}$, during
+the interrogation. While no phase shift occurred when the reversal was sudden,
+the Ramsey fringes were shifted by a factor of $\pi$ when the reversal was
+adiabatic. We thus verified the prediction that the spin states $|F,m=0 >$
+acquire a purely topological and parity-dependent phase factor of $(-1)^{F}$ as
+a result of $\textbf{B} \to -\textbf{B}$.
+","Observation of Topological and Parity-dependent Phase of $m=0$ Spin
+  States","""Measurement of Phase Shifts in Laser-Cooled Rb Clock-Transition Pseudospins: A Ramsey Interrogation Scheme""",Measurement of Topological Phase Shift During Adiabatic Spin-Exchange,Phase Shifts in Laser-Cooled $^{87}$Rb Clock-Transition Pseudospin States,"A Ramsey interrogation scheme for measuring the phase shifts of
+  $^{87}$Rb clock-transition pseudospins induced by reversals of
+magnetic fields"
+"  A branching random walk in presence of an absorbing wall moving at a constant
+velocity $v$ undergoes a phase transition as the velocity $v$ of the wall
+varies. Below the critical velocity $v_c$, the population has a non-zero
+survival probability and when the population survives its size grows
+exponentially. We investigate the histories of the population conditioned on
+having a single survivor at some final time $T$. We study the quasi-stationary
+regime for $v<v_c$ when $T$ is large. To do so, one can construct a modified
+stochastic process which is equivalent to the original process conditioned on
+having a single survivor at final time $T$. We then use this construction to
+show that the properties of the quasi-stationary regime are universal when
+$v\to v_c$. We also solve exactly a simple version of the problem, the
+exponential model, for which the study of the quasi-stationary regime can be
+reduced to the analysis of a single one-dimensional map.
+","Quasi-stationary regime of a branching random walk in presence of an
+  absorbing wall","""Phase Transition in Branching Random Walks with Absorbing Walls: The Quasi-Steady State Regime""","Quasi-stationarity of branching random walks with a wall moving at a
+  constant velocity",Quasi-Stationarity of Branching Random Walks with Absorbing Walls,Phase Transition of a Branching Random Walk with a Moving Barrier
